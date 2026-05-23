@@ -1,0 +1,28 @@
+title: Shellton
+description: SSH and Mosh terminal client for iPhone and iPad. Persistent sessions, on-device voice input, and no tracking.
+url: ""  # set to https://shellton.app once the custom domain is wired up
+baseurl: ""
+
+# Minimal dark theme via the default GitHub Pages theme chooser.
+# Settings → Pages → Theme chooser → "Cayman" or "Architect" both look fine.
+# If you prefer no theme, delete this line and use the raw markdown.
+theme: jekyll-theme-cayman
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Pretty permalinks — drop the .html extension.
+permalink: /:title/
+
+defaults:
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: default
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
