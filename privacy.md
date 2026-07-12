@@ -1,13 +1,13 @@
 ---
 title: Privacy Policy
 permalink: /privacy/
-description: Shellton does not collect data for Datons. This policy explains local storage, iCloud sync, model downloads, and optional user-configured network features.
+description: Shellton uses anonymous, opt-out product analytics and does not collect terminal content, credentials, or identity.
 ---
 
 # Shellton Privacy Policy
 
 **Effective date:** 2026-05-23
-**Last updated:** 2026-06-28
+**Last updated:** 2026-07-12
 
 Shellton is a terminal client for SSH and Mosh, built and operated by **Datons**. This policy explains exactly what Shellton does and does not collect, store, or transmit.
 
@@ -37,7 +37,7 @@ Shellton uses [TelemetryDeck](https://telemetrydeck.com/privacy/) to understand 
 - Hostnames, IP addresses, usernames, commands, terminal output, file contents, and voice transcripts are **never** part of any event — the client strips raw values before sending.
 - No cross-app tracking, no advertising identifiers, no fingerprinting.
 
-You can turn telemetry off at any time in **Settings → share anonymous usage analytics**. The app is fully functional with it off.
+You can turn telemetry off at any time in **Settings → Diagnostics & Privacy → Share anonymous usage analytics**. The app is fully functional with it off.
 
 ## 2. Information stored only on your device
 
@@ -73,8 +73,9 @@ Shellton may make these outbound network connections:
 - **iCloud** — accessory-bar configuration can sync through Shellton's private iCloud container when iCloud is available.
 - **User-configured Live Activity webhook** — only if you enable the feature and enter an HTTPS endpoint. Shellton sends the event type, app bundle ID, ActivityKit activity ID, session ID, host name, user name, display name, connection time and status, encoded Live Activity state, timestamp, and—when issued by Apple—the ActivityKit push token. The destination and its retention policy are controlled by you, not Datons.
 - **Apple Push Notification service** — ActivityKit communicates with APNs when server-backed Live Activities are enabled.
+- **TelemetryDeck analytics** — anonymous product-interaction events described above, unless you disable analytics in Settings.
 
-There are no Datons analytics endpoints, usage reporting, remote configuration services, or advertising calls.
+There are no Datons-operated analytics endpoints, remote configuration services, advertising calls, or cross-app tracking services.
 
 ## 5. Permissions Shellton requests, and why
 
@@ -98,7 +99,7 @@ Keychain items can survive app deletion under iOS behavior. Delete keys inside S
 
 The private iCloud accessory-bar file and any YAML files you exported to iCloud Drive, Dropbox, or elsewhere are **not** necessarily removed when you uninstall Shellton. Delete those files from Files or the corresponding cloud service if you want them removed.
 
-Datons does not retain any of your data, because Datons never receives any of it.
+Datons does not receive or retain your terminal content, host configuration, credentials, keys, voice content, or location. Anonymous analytics are retained through TelemetryDeck for product improvement and may be deleted or aggregated according to Datons' TelemetryDeck retention settings.
 
 ## 7. Children
 
@@ -106,7 +107,7 @@ Shellton is a developer tool. It is not directed at children under 13 and does n
 
 ## 8. Changes to this policy
 
-If this policy changes meaningfully, the update will be published at the URL where you found this document, with a new "Last updated" date at the top. Continued use of Shellton after a change constitutes acceptance of the updated policy. Because Shellton does not collect data, policy changes are typically clarifications rather than substantive shifts.
+If this policy changes meaningfully, the update will be published at the URL where you found this document, with a new "Last updated" date at the top. Continued use of Shellton after a change constitutes acceptance of the updated policy.
 
 ## 9. Contact
 
@@ -124,8 +125,8 @@ For App Store Connect's App Privacy questionnaire, Shellton answers:
 
 | Question | Answer |
 |---|---|
-| Do you collect data from this app? | **No** |
-| Do you use third-party partners to collect data? | **No** |
+| Do you collect data from this app? | **Yes — Product Interaction, not linked to the user** |
+| Do you use third-party partners to collect data? | **Yes — TelemetryDeck processes anonymous analytics** |
 | Tracking | **Not used** |
 
-All "data linked to user" and "data not linked to user" categories: **None collected.**
+Product Interaction is declared as **data not linked to the user**, used for analytics. No collected data is used for tracking.

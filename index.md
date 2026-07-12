@@ -1,11 +1,11 @@
 ---
 title: Shellton
-description: SSH and Mosh terminal client for iPhone and iPad.
+description: SSH and Mosh terminal client for iPhone.
 ---
 
 # Shellton
 
-**A fast, persistent SSH and Mosh terminal client for iPhone and iPad.**
+**A fast, persistent SSH and Mosh terminal client for iPhone.**
 
 Shellton tries Mosh first on every connection. Mosh survives Wi-Fi handoffs, dead zones, and locked screens — your prompt is still there when you come back. If the server doesn't have `mosh-server` installed, Shellton falls back to SSH automatically. No menus, no settings, just a connection that stays connected.
 
@@ -21,11 +21,11 @@ Shellton tries Mosh first on every connection. Mosh survives Wi-Fi handoffs, dea
 - **Live Activities** — active sessions in the Dynamic Island and on the Lock Screen
 - **SSH keys in the Keychain** — with optional Face ID protection
 - **True-color terminal** powered by [SwiftTerm](https://github.com/migueldeicaza/SwiftTerm) with Nerd Font glyph support
-- **No analytics, no tracking, no ads** — [privacy policy](/privacy/)
+- **Anonymous, opt-out product analytics; no tracking or ads** — [privacy policy](/privacy/)
 
 ## Requirements
 
-- iOS / iPadOS 17.0 or later
+- iOS 17.0 or later
 - An SSH server you can reach
 - `mosh-server` on the remote host for persistent sessions (optional — Shellton falls back to SSH automatically)
 

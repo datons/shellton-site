@@ -11,9 +11,7 @@ description: How to get help with Shellton.
 ### "My SSH session dies when I switch apps."
 By default, Shellton uses Mosh when available. Mosh survives backgrounding natively over UDP — your session stays alive. If your server doesn't have `mosh-server` installed, Shellton falls back to SSH, and SSH sessions do disconnect when iOS suspends the app.
 
-**Two fixes:**
-1. Install `mosh-server` on the remote host: `apt install mosh` / `brew install mosh` / etc. Shellton will auto-detect it on the next connect.
-2. In Settings → Security, enable "Keep SSH sessions alive in background". Shellton will use iOS background location (at the lowest accuracy, with no data recorded or transmitted) to keep the SSH session alive. You'll be prompted once the first time you background an SSH session.
+Install `mosh-server` on the remote host (`apt install mosh`, `brew install mosh`, or your platform's equivalent). Shellton will auto-detect it on the next connection. When Mosh is unavailable, Shellton parks SSH while backgrounded and reconnects on foreground; using tmux keeps the remote work alive across that reconnect.
 
 ### "How do I add my SSH key?"
 Settings → Security → SSH Keys → + button.
@@ -30,7 +28,7 @@ Settings → Portability → Export to Clipboard copies a complete YAML config (
 Yes. Settings → Appearance → Theme → + to create a new one. Or import a theme from the Ghostty theme gallery (paste the config and Shellton will parse it).
 
 ### "Does Shellton send any data anywhere?"
-No. See the [privacy policy](/privacy/). Shellton makes outbound connections **only** to the SSH and Mosh servers you explicitly configure. There's no analytics, no tracking, no third-party SDKs.
+Shellton sends anonymous product-interaction analytics through TelemetryDeck unless you disable them under Settings → Diagnostics & Privacy. Events are not linked to identity and exclude hostnames, addresses, usernames, commands, terminal text, credentials, voice content, and raw errors. Shellton does not use advertising or cross-app tracking. It also connects to configured SSH/Mosh hosts and, when you use the corresponding options, Apple iCloud, speech-model providers, APNs, and an HTTPS Live Activity webhook you configure. See the [privacy policy](/privacy/) for the exact fields and purposes.
 
 ---
 
