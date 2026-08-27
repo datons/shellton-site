@@ -1,0 +1,34 @@
+<h1 id="shellton-support">Shellton Support</h1>
+<h2 id="quick-answers">Quick answers</h2>
+<h3 id="my-ssh-session-dies-when-i-switch-apps.">“My SSH session dies when I switch apps.”</h3>
+<p>By default, Shellton uses Mosh when available. Mosh survives backgrounding natively over UDP — your session stays alive. If your server doesn’t have <code>mosh-server</code> installed, Shellton falls back to SSH, and SSH sessions do disconnect when iOS suspends the app.</p>
+<p>Install <code>mosh-server</code> on the remote host (<code>apt install mosh</code>, <code>brew install mosh</code>, or your platform’s equivalent). Shellton will auto-detect it on the next connection. When Mosh is unavailable, Shellton parks SSH while backgrounded and reconnects on foreground; using tmux keeps the remote work alive across that reconnect.</p>
+<h3 id="how-do-i-add-my-ssh-key">“How do I add my SSH key?”</h3>
+<p>Settings → Security → SSH Keys → + button.</p>
+<ul>
+<li><strong>Generate</strong> — create a new Ed25519 key inside Shellton’s Keychain entry.</li>
+<li><strong>Import</strong> — paste an existing private key (OpenSSH or PEM format).</li>
+</ul>
+<p>Keys are stored in the iOS Keychain. You can optionally require Face ID / Touch ID before every use.</p>
+<h3 id="how-do-i-move-my-config-between-devices">“How do I move my config between devices?”</h3>
+<p>Settings → Portability → Export to Clipboard copies a complete YAML config (connections + accessory bar) to the clipboard. On another device, open Settings → Portability → Import from YAML and either paste the clipboard, or pick a <code>.yaml</code> file from Files.app (iCloud Drive, Dropbox, Working Copy — anywhere you keep documents). The same YAML schema is documented in the repo at <code>docs/yaml-schema.md</code> so you can also author or edit it by hand on a Mac.</p>
+<h3 id="can-i-use-my-own-terminal-theme">“Can I use my own terminal theme?”</h3>
+<p>Yes. Settings → Appearance → Theme → + to create a new one. Or import a theme from the Ghostty theme gallery (paste the config and Shellton will parse it).</p>
+<h3 id="does-shellton-send-any-data-anywhere">“Does Shellton send any data anywhere?”</h3>
+<p>Shellton sends anonymous product-interaction analytics through TelemetryDeck unless you disable them under Settings → Diagnostics &amp; Privacy. Events are not linked to identity and exclude hostnames, addresses, usernames, commands, terminal text, credentials, voice content, and raw errors. Shellton does not use advertising or cross-app tracking. It also connects to configured SSH/Mosh hosts and, when you use the corresponding options, Apple iCloud, speech-model providers, APNs, and an HTTPS Live Activity webhook you configure. See the <a href="/privacy/">privacy policy</a> for the exact fields and purposes.</p>
+<hr />
+<h2 id="contact">Contact</h2>
+<p>For anything not covered above:</p>
+<ul>
+<li><strong>Email:</strong> <a href="mailto:jesus.lopez@datons.com">jesus.lopez@datons.com</a></li>
+<li><strong>Issue tracker:</strong> <a href="https://gitlab.com/datons.com/shellton/-/issues">https://gitlab.com/datons.com/shellton/-/issues</a></li>
+</ul>
+<p>When reporting a bug, please include:</p>
+<ul>
+<li>Shellton version (Settings → About)</li>
+<li>iOS version</li>
+<li>A short description of what happened and what you expected</li>
+<li>Whether the session was SSH or Mosh (if relevant)</li>
+</ul>
+<hr />
+<p><small><a href="/">Back to home</a> · <a href="/privacy/">Privacy</a></small></p>

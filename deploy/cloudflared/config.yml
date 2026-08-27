@@ -1,0 +1,9 @@
+tunnel: TO_BE_PROVISIONED
+credentials-file: /etc/cloudflared/credentials.json
+
+ingress:
+  - hostname: shellton.app
+    service: http://web:3000
+  - hostname: www.shellton.app
+    service: http://web:3000
+  - service: http_status:404

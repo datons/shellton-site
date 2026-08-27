@@ -1,0 +1,35 @@
+name: ${COMPOSE_PROJECT_NAME:-shellton-site}
+
+services:
+  web:
+    env_file:
+      - ../deploy/domain.env
+    build:
+      context: ../frontend
+      dockerfile: ../docker/dockerfiles/web.Dockerfile
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:${SHELLTON_WEB_PORT:-3098}:3000"
+    networks: [edge]
+    healthcheck:
+      test: ["CMD", "bun", "-e", "fetch('http://localhost:3000').then((r) => process.exit(r.ok ? 0 : 1)).catch(() => process.exit(1))"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+  cloudflared:
+    image: cloudflare/cloudflared:2026.7.3
+    user: root
+    command: tunnel --no-autoupdate --config /etc/cloudflared/config.yml run
+    volumes:
+      - ../deploy/cloudflared/config.yml:/etc/cloudflared/config.yml:ro
+      - ../deploy/cloudflared/credentials.json:/etc/cloudflared/credentials.json:ro
+    depends_on:
+      web:
+        condition: service_healthy
+    networks: [edge]
+    restart: unless-stopped
+
+networks:
+  edge:

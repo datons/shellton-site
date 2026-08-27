@@ -1,4 +1,9 @@
-_site/
-.jekyll-cache/
-.sass-cache/
 .DS_Store
+__pycache__/
+frontend/.svelte-kit/
+frontend/build/
+frontend/node_modules/
+frontend/.bun-cache/
+docker/env/.env
+deploy/backups/
+deploy/cloudflared/credentials.json

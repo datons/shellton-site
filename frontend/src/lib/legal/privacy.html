@@ -1,0 +1,149 @@
+<h1 id="shellton-privacy-policy">Shellton Privacy Policy</h1>
+<p><strong>Effective date:</strong> 2026-05-23 <strong>Last updated:</strong> 2026-07-12</p>
+<p>Shellton is a terminal client for SSH and Mosh, built and operated by <strong>Datons</strong>. This policy explains exactly what Shellton does and does not collect, store, or transmit.</p>
+<p>The short version: <strong>Shellton does not track you and never sees your terminal content.</strong> The app collects a small amount of anonymous product telemetry (which screens and features are used — never hostnames, commands, or terminal text) that you can switch off in Settings at any time. The app connects to hosts you configure, can download speech models, can sync accessory-bar configuration through your private iCloud container, and can send Live Activity data to an HTTPS webhook you configure.</p>
+<hr />
+<h2 id="information-we-do-not-collect">1. Information we do not collect</h2>
+<p>Shellton does <strong>not</strong> collect or transmit any of the following to Datons:</p>
+<ul>
+<li>Personally identifiable information (name, email, address, phone number)</li>
+<li>Device identifiers (IDFA, IDFV, advertising IDs)</li>
+<li>Crash reports (Apple’s standard crash reporting is opt-in via your iOS device settings and goes only to Apple, not to Datons)</li>
+<li>Terminal session content (commands, output, files transferred)</li>
+<li>Server hostnames, usernames, or any data about the systems you connect to</li>
+<li>Voice recordings or transcribed text</li>
+</ul>
+<p>Shellton does not contain any advertising, attribution, or marketing SDKs, and does not track you across apps or websites.</p>
+<h2 id="a.-anonymous-product-telemetry">1a. Anonymous product telemetry</h2>
+<p>Shellton uses <a href="https://telemetrydeck.com/privacy/">TelemetryDeck</a> to understand which features are used, so we can prioritize what to improve. This telemetry is designed to be anonymous end to end:</p>
+<ul>
+<li>Identifiers are irreversibly hashed <strong>on your device</strong> before anything is sent; nothing is linked to your identity.</li>
+<li>Events describe product interactions only (e.g. “a connection was started”, “the tmux panel was opened”, auth method <em>type</em>, protocol <em>type</em>).</li>
+<li>Hostnames, IP addresses, usernames, commands, terminal output, file contents, and voice transcripts are <strong>never</strong> part of any event — the client strips raw values before sending.</li>
+<li>No cross-app tracking, no advertising identifiers, no fingerprinting.</li>
+</ul>
+<p>You can turn telemetry off at any time in <strong>Settings → Diagnostics &amp; Privacy → Share anonymous usage analytics</strong>. The app is fully functional with it off.</p>
+<h2 id="information-stored-only-on-your-device">2. Information stored only on your device</h2>
+<p>Shellton stores the following <strong>locally</strong> on your iPhone. None of this is transmitted to Datons:</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>What</th>
+<th>Where stored</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Saved server connections (host, port, username, color tag, protocol preference)</td>
+<td>App’s local SwiftData store</td>
+<td>So you can reconnect without retyping</td>
+</tr>
+<tr>
+<td>SSH private keys you generate or import</td>
+<td>iOS Keychain (secure enclave when supported)</td>
+<td>To authenticate with your SSH servers</td>
+</tr>
+<tr>
+<td>Terminal command history typed locally or, when you explicitly enable automatic import, fetched from your servers</td>
+<td>Protected app-local Application Support directory</td>
+<td>For the in-app history browser</td>
+</tr>
+<tr>
+<td>Snippets you create</td>
+<td>App’s local Application Support directory</td>
+<td>For the in-app snippet library</td>
+</tr>
+<tr>
+<td>Accessory bar configuration</td>
+<td>Protected app-local storage and your private iCloud container when iCloud is available</td>
+<td>Your customized keyboard layout across devices</td>
+</tr>
+<tr>
+<td>Trusted SSH host fingerprints</td>
+<td>App’s local Application Support directory</td>
+<td>Trust-on-first-use host key verification</td>
+</tr>
+<tr>
+<td>App preferences (font size, theme, voice model)</td>
+<td>iOS UserDefaults</td>
+<td>Per-device settings</td>
+</tr>
+</tbody>
+</table>
+<p>Your SSH keys never leave the Keychain. Shellton uses them in-memory at connection time and never copies, exports, or transmits them.</p>
+<h2 id="icloud-sync-and-manual-transfer">3. iCloud sync and manual transfer</h2>
+<p>When iCloud is available, Shellton stores your personal accessory-bar YAML in its private iCloud container so the layout can follow you between devices. Apple operates this service under <a href="https://www.apple.com/legal/privacy/">Apple’s Privacy Policy</a>. Datons cannot access your private iCloud container. Saved hosts, private keys, command history, snippets, and themes are not synchronized by this feature.</p>
+<p>Shellton has an Export to YAML / Import from YAML option in Settings → Portability. You can copy the YAML to the clipboard or pick a <code>.yaml</code> file from the iOS Files app (which includes iCloud Drive, Dropbox, Working Copy, etc.). Where you choose to keep that file is entirely your decision — Datons doesn’t operate any service that receives, stores, or syncs it.</p>
+<p>If you put the file in iCloud Drive, Apple’s iCloud service syncs it between your own devices under <a href="https://www.apple.com/legal/privacy/">Apple’s Privacy Policy</a>. Datons has no access to, and does not request access to, your iCloud Drive contents.</p>
+<h2 id="network-connections-shellton-makes">4. Network connections Shellton makes</h2>
+<p>Shellton may make these outbound network connections:</p>
+<ul>
+<li><strong>SSH connections</strong> to the hostnames and ports you enter into the app (TCP, port 22 by default)</li>
+<li><strong>Mosh connections</strong> which start as a brief SSH session to your server and then continue as direct UDP between your device and your server (default UDP port range 60000–61000)</li>
+<li><strong>Speech-model downloads</strong> — when you choose a WhisperKit or MLX Parakeet model that is not already on the device, the model provider receives a normal download request. Recorded audio and transcripts are not included in that request. After download, transcription runs on-device.</li>
+<li><strong>iCloud</strong> — accessory-bar configuration can sync through Shellton’s private iCloud container when iCloud is available.</li>
+<li><strong>User-configured Live Activity webhook</strong> — only if you enable the feature and enter an HTTPS endpoint. Shellton sends the event type, app bundle ID, ActivityKit activity ID, session ID, host name, user name, display name, connection time and status, encoded Live Activity state, timestamp, and—when issued by Apple—the ActivityKit push token. The destination and its retention policy are controlled by you, not Datons.</li>
+<li><strong>Apple Push Notification service</strong> — ActivityKit communicates with APNs when server-backed Live Activities are enabled.</li>
+<li><strong>TelemetryDeck analytics</strong> — anonymous product-interaction events described above, unless you disable analytics in Settings.</li>
+</ul>
+<p>There are no Datons-operated analytics endpoints, remote configuration services, advertising calls, or cross-app tracking services.</p>
+<h2 id="permissions-shellton-requests-and-why">5. Permissions Shellton requests, and why</h2>
+<p>Shellton may request the following iOS permissions. Each is clearly explained in iOS’s permission prompt and is used only for the stated purpose.</p>
+<h3 id="microphone-nsmicrophoneusagedescription">Microphone (<code>NSMicrophoneUsageDescription</code>)</h3>
+<p>Used by the optional voice input feature. Audio is processed <strong>entirely on-device</strong> using Apple Speech, <a href="https://github.com/argmaxinc/WhisperKit">WhisperKit</a>, or MLX Parakeet. Audio recordings are never saved to disk or transmitted off your device. The transcribed text is inserted into your terminal session locally.</p>
+<h3 id="local-network-nslocalnetworkusagedescription">Local Network (<code>NSLocalNetworkUsageDescription</code>)</h3>
+<p>Required by iOS to connect to SSH/Mosh servers on your local network (e.g. a home or office machine on your LAN). Shellton uses this only to make connections to the hostnames you’ve explicitly configured.</p>
+<h2 id="data-retention-and-deletion">6. Data retention and deletion</h2>
+<p>Deleting Shellton removes its app-container data, including:</p>
+<ul>
+<li>All saved connections</li>
+<li>All command history, snippets, themes, and preferences</li>
+<li>Trusted host key fingerprints</li>
+</ul>
+<p>Keychain items can survive app deletion under iOS behavior. Delete keys inside Settings → Security → SSH Keys before uninstalling if you want them removed immediately. If you reinstall Shellton, previously retained Keychain items may still exist.</p>
+<p>The private iCloud accessory-bar file and any YAML files you exported to iCloud Drive, Dropbox, or elsewhere are <strong>not</strong> necessarily removed when you uninstall Shellton. Delete those files from Files or the corresponding cloud service if you want them removed.</p>
+<p>Datons does not receive or retain your terminal content, host configuration, credentials, keys, voice content, or location. Anonymous analytics are retained through TelemetryDeck for product improvement and may be deleted or aggregated according to Datons’ TelemetryDeck retention settings.</p>
+<h2 id="children">7. Children</h2>
+<p>Shellton is a developer tool. It is not directed at children under 13 and does not knowingly collect information from anyone, regardless of age.</p>
+<h2 id="changes-to-this-policy">8. Changes to this policy</h2>
+<p>If this policy changes meaningfully, the update will be published at the URL where you found this document, with a new “Last updated” date at the top. Continued use of Shellton after a change constitutes acceptance of the updated policy.</p>
+<h2 id="contact">9. Contact</h2>
+<p>For privacy questions or concerns about Shellton, contact:</p>
+<p><strong>Datons</strong> — email <a href="mailto:jesus.lopez@datons.com">jesus.lopez@datons.com</a>, see the <a href="/support/">support page</a> for known issues and bug reports.</p>
+<p>If you believe Shellton is doing something that contradicts this policy, please contact us before filing a complaint — we want to fix it.</p>
+<hr />
+<h2 id="apple-app-store-privacy-nutrition-label-mapping">Apple App Store Privacy “Nutrition Label” Mapping</h2>
+<p>For App Store Connect’s App Privacy questionnaire, Shellton answers:</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Question</th>
+<th>Answer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Do you collect data from this app?</td>
+<td><strong>Yes — Product Interaction, not linked to the user</strong></td>
+</tr>
+<tr>
+<td>Do you use third-party partners to collect data?</td>
+<td><strong>Yes — TelemetryDeck processes anonymous analytics</strong></td>
+</tr>
+<tr>
+<td>Tracking</td>
+<td><strong>Not used</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Product Interaction is declared as <strong>data not linked to the user</strong>, used for analytics. No collected data is used for tracking.</p>
