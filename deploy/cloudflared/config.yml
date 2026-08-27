@@ -1,4 +1,4 @@
-tunnel: TO_BE_PROVISIONED
+tunnel: 5c750be0-948e-4203-a255-38936cc16c01
 credentials-file: /etc/cloudflared/credentials.json
 
 ingress:
