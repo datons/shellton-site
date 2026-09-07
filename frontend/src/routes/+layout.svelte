@@ -1,7 +1,4 @@
 <script lang="ts">
-  import '@fontsource-variable/ibm-plex-sans';
-  import '@fontsource/ibm-plex-mono/400.css';
-  import '@fontsource/ibm-plex-mono/600.css';
   import { appStoreUrl } from '$lib/content';
   import './layout.css';
 
@@ -10,7 +7,7 @@
 
 <svelte:head>
   <link rel="icon" href="/favicon.svg" />
-  <meta name="theme-color" content="#0d1017" />
+  <meta name="theme-color" content="#05070A" />
 </svelte:head>
 
 <div class="site-shell">

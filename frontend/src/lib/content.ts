@@ -10,12 +10,12 @@ export const landing = {
     proof: 'Available on the App Store · Built by Datons'
   },
   features: [
-    { icon: '⌁', title: 'Agent cockpit', detail: 'Watch and drive Claude Code & Codex as a native conversation — streamed over ACP, not a screen-scrape.' },
+    { icon: 'acp', title: 'Agent cockpit', detail: 'Watch and drive Claude Code & Codex as a native conversation — streamed over ACP, not a screen-scrape.' },
     { icon: '∿', title: 'Mosh-first, always', detail: 'Survives Wi-Fi handoffs, tunnels and locked screens. Falls back to SSH automatically when mosh-server is missing.' },
-    { icon: '⬡', title: 'No host daemon', detail: 'Agent conversations need Node.js 22+ and npm on the remote host. Shellton launches the ACP adapter on demand over SSH.' },
-    { icon: '🎙', title: 'Voice, on device', detail: 'Whisper, Parakeet or Apple speech — transcribed locally. Your audio never leaves the phone.' },
-    { icon: '⌨', title: 'Your keyboard, your rules', detail: 'Accessory bar defined in YAML: modifiers, escape sequences, tmux macros. Version it, sync it via iCloud.' },
-    { icon: '🔑', title: 'Keys protected on device', detail: 'SSH keys are sealed in the iOS Keychain and can require Face ID or Touch ID before every use.' }
+    { icon: 'ssh', title: 'No host daemon', detail: 'Agent conversations need Node.js 22+ and npm on the remote host. Shellton launches the ACP adapter on demand over SSH.' },
+    { icon: 'mic', title: 'Voice, on device', detail: 'Whisper, Parakeet or Apple speech — transcribed locally. Your audio never leaves the phone.' },
+    { icon: 'key', title: 'Your keyboard, your rules', detail: 'Accessory bar defined in YAML: modifiers, escape sequences, tmux macros. Version it, sync it via iCloud.' },
+    { icon: 'id', title: 'Keys protected on device', detail: 'SSH keys are sealed in the iOS Keychain and can require Face ID or Touch ID before every use.' }
   ],
   compare: {
     heading: 'How Shellton compares',

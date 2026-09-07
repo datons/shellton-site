@@ -18,6 +18,6 @@
 
   <figure class="product-shot">
     <img src="/images/shellton-agent-cockpit.webp" alt="A Claude coding-agent conversation running in Shellton on iPhone" width="1320" height="2868" />
-    <figcaption>Actual Shellton interface · ACP over SSH</figcaption>
+    <figcaption><span>agent cockpit</span><span>ACP · connected</span></figcaption>
   </figure>
 </section>
