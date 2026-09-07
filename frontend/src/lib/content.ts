@@ -22,7 +22,7 @@ export const landing = {
   features: [
     { icon: '⌁', title: 'Agent cockpit', detail: 'Watch and drive Claude Code & Codex as a native conversation — streamed over ACP, not a screen-scrape.' },
     { icon: '∿', title: 'Mosh-first, always', detail: 'Survives Wi-Fi handoffs, tunnels and locked screens. Falls back to SSH automatically when mosh-server is missing.' },
-    { icon: '⬡', title: 'Nothing to install', detail: 'No host daemon, no wrapper CLI. Shellton discovers your tmux sessions and agents over plain SSH.' },
+    { icon: '⬡', title: 'No host daemon', detail: 'Agent conversations need Node.js 22+ and npm on the remote host. Shellton launches the ACP adapter on demand over SSH.' },
     { icon: '🎙', title: 'Voice, on device', detail: 'Whisper, Parakeet or Apple speech — transcribed locally. Your audio never leaves the phone.' },
     { icon: '⌨', title: 'Your keyboard, your rules', detail: 'Accessory bar defined in YAML: modifiers, escape sequences, tmux macros. Version it, sync it via iCloud.' },
     { icon: '🔑', title: 'Keys you can audit', detail: 'SSH keys sealed in the iOS Keychain behind Face ID — and the code that touches them is GPLv3, on GitHub.' }
@@ -32,7 +32,7 @@ export const landing = {
     columns: ['', 'Shellton', 'Moshi', 'Termius', 'Blink'],
     rows: [
       ['Open source', 'GPLv3 core', 'Closed', 'Closed', 'Open'],
-      ['Host-side install for agent features', 'None', 'moshi-hook', '—', '—'],
+      ['Agent feature prerequisite', 'Node.js 22+ and npm', 'moshi-hook', '—', '—'],
       ['Agent cockpit', 'Native · ACP', 'Hook-based', '—', '—'],
       ['Mosh with auto-fallback', 'Yes', 'Manual choice', 'Mosh', 'Mosh']
     ],
@@ -83,7 +83,7 @@ export const comparisons: Record<string, Comparison> = {
     rows: [
       { capability: 'Source posture', shellton: 'Open-core GPLv3', competitor: 'Closed', advantage: 'shellton' },
       { capability: 'Agent cockpit', shellton: 'Native over ACP + JSONL, no daemon', competitor: 'Experimental Pro chat view via moshi-hook', advantage: 'different' },
-      { capability: 'Host-side install for agent features', shellton: 'None — discovers tmux and agents over SSH', competitor: 'moshi-hook via curl | sh', advantage: 'shellton' },
+      { capability: 'Agent feature prerequisite', shellton: 'Node.js 22+ and npm; ACP adapter launches on demand', competitor: 'moshi-hook via curl | sh', advantage: 'different' },
       { capability: 'Persistence', shellton: 'Automatic Mosh → SSH fallback', competitor: 'Mosh + ET, manual choice', advantage: 'competitor' },
       { capability: 'On-device voice', shellton: 'Whisper, Parakeet, or Apple Speech', competitor: 'Parakeet, Whisper, Apple, or cloud', advantage: 'tie' },
       { capability: 'Diff viewer, file browser, dev preview', shellton: 'Not available', competitor: 'Available with Pro', advantage: 'competitor' },

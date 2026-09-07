@@ -1,5 +1,8 @@
 <h1 id="shellton-support">Shellton Support</h1>
 <h2 id="quick-answers">Quick answers</h2>
+<h3 id="what-do-i-need-for-agent-conversations">“What do I need for agent conversations?”</h3>
+<p>The remote SSH host needs Node.js 22 or newer and npm. You do not install a Shellton daemon or a generic ACP service: choose Claude Code or Codex in Shellton, and Shellton launches the matching ACP adapter on demand over SSH. Complete the provider’s authentication prompt when asked.</p>
+<p>Shellton currently uses <code>@agentclientprotocol/claude-agent-acp</code> for Claude Code and <code>@agentclientprotocol/codex-acp</code> for Codex. If a host is marked “needs Node 22+,” update Node.js and confirm that both <code>node --version</code> and <code>npm --version</code> work in a non-interactive SSH shell.</p>
 <h3 id="my-ssh-session-dies-when-i-switch-apps.">“My SSH session dies when I switch apps.”</h3>
 <p>By default, Shellton uses Mosh when available. Mosh survives backgrounding natively over UDP — your session stays alive. If your server doesn’t have <code>mosh-server</code> installed, Shellton falls back to SSH, and SSH sessions do disconnect when iOS suspends the app.</p>
 <p>Install <code>mosh-server</code> on the remote host (<code>apt install mosh</code>, <code>brew install mosh</code>, or your platform’s equivalent). Shellton will auto-detect it on the next connection. When Mosh is unavailable, Shellton parks SSH while backgrounded and reconnects on foreground; using tmux keeps the remote work alive across that reconnect.</p>
