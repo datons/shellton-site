@@ -7,17 +7,7 @@ export const landing = {
     sub: 'The terminal for iPhone & iPad that keeps Claude Code and Codex reachable wherever you are. Mosh-first. No host daemon. Keys protected on device.',
     ctaPrimary: 'Download on the App Store',
     ctaSecondary: 'Agent setup',
-    proof: 'Available on the App Store · Built by Datons',
-    terminal: {
-      titleBar: 'droplet-ts — mosh · tmux: main',
-      lines: [
-        { prompt: '❯', command: 'claude', note: '' },
-        { prompt: '●', command: 'Claude Code — refactoring AuthService…', note: 'live' },
-        { prompt: '⏺', command: 'Edit  Shell/Services/SSH/AuthService.swift', note: 'done' },
-        { prompt: '⏺', command: 'Bash  swift test --filter AuthTests', note: 'running' },
-        { prompt: '▌', command: 'watching from iPhone — tap to approve', note: '' }
-      ]
-    }
+    proof: 'Available on the App Store · Built by Datons'
   },
   features: [
     { icon: '⌁', title: 'Agent cockpit', detail: 'Watch and drive Claude Code & Codex as a native conversation — streamed over ACP, not a screen-scrape.' },

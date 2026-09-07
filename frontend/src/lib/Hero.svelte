@@ -16,21 +16,8 @@
     <p class="proof">{hero.proof}</p>
   </div>
 
-  <div class="terminal-window" aria-label="Shellton terminal session preview">
-    <div class="terminal-bar">
-      <div class="window-controls" aria-hidden="true"><span></span><span></span><span></span></div>
-      <span>{hero.terminal.titleBar}</span>
-      <span class="secure">encrypted</span>
-    </div>
-    <div class="terminal-body">
-      {#each hero.terminal.lines as line, index}
-        <div class:active={index === hero.terminal.lines.length - 1} class="terminal-line">
-          <span class="prompt">{line.prompt}</span>
-          <span class="command">{line.command}</span>
-          {#if line.note}<span class="note">{line.note}</span>{/if}
-        </div>
-      {/each}
-    </div>
-    <div class="terminal-status"><span>ACP · connected</span><span>52 ms</span></div>
-  </div>
+  <figure class="product-shot">
+    <img src="/images/shellton-agent-cockpit.webp" alt="A Claude coding-agent conversation running in Shellton on iPhone" width="1320" height="2868" />
+    <figcaption>Actual Shellton interface · ACP over SSH</figcaption>
+  </figure>
 </section>
