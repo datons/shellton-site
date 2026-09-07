@@ -21,7 +21,7 @@
         <a href="/#features">Features</a>
         <a href="/#compare">Compare</a>
         <a href="/support">Docs</a>
-        <a href="/#open-source">GitHub</a>
+        <a href="/#download">Pricing</a>
       </div>
       <a class="nav-cta" href={appStoreUrl} rel="noreferrer">App Store</a>
     </nav>

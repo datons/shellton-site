@@ -11,7 +11,7 @@
     <p class="hero-sub">{hero.sub}</p>
     <div class="hero-actions">
       <a class="button primary" href={appStoreUrl} rel="noreferrer">{hero.ctaPrimary}</a>
-      <span class="button secondary" aria-label="Open source coming with version 1.0">{hero.ctaSecondary}</span>
+      <a class="button secondary" href="/support">{hero.ctaSecondary}</a>
     </div>
     <p class="proof">{hero.proof}</p>
   </div>

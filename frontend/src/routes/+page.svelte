@@ -5,8 +5,8 @@
 </script>
 
 <svelte:head>
-  <title>Shellton — Open-source terminal for humans and their agents</title>
-  <meta name="description" content="The open-source terminal for iPhone and iPad that keeps Claude Code and Codex reachable wherever you are." />
+  <title>Shellton — A terminal for humans and their agents</title>
+  <meta name="description" content="The terminal for iPhone and iPad that keeps Claude Code and Codex reachable wherever you are." />
 </svelte:head>
 
 <Hero />
@@ -14,25 +14,6 @@
 <section id="features" class="section page-frame">
   <div class="section-heading"><p class="kicker">SIX THINGS, ONE TERMINAL</p><h2>Stay close to the work without staying at your desk.</h2></div>
   <FeatureGrid />
-</section>
-
-<section id="screens" class="section screenshots-section">
-  <div class="page-frame">
-    <div class="section-heading"><p class="kicker">APP STORE · 6.7-INCH SET</p><h2>From every agent to the one decision that needs you.</h2><p>The first three frames tell one story: roster → cockpit → approval.</p></div>
-    <div class="phone-grid">
-      {#each landing.screenshots as screen}
-        <article class="phone-placeholder">
-          <div class="phone-screen">
-            <span class="placeholder-label">SCREENSHOT PLACEHOLDER</span>
-            <span class="phone-notch" aria-hidden="true"></span>
-            <p class="phone-title">{screen.title}</p>
-            <p class="phone-detail">{screen.detail}</p>
-          </div>
-          <p>{screen.label}</p>
-        </article>
-      {/each}
-    </div>
-  </div>
 </section>
 
 <section id="compare" class="section page-frame">
@@ -47,10 +28,6 @@
     <p>{landing.compare.note}</p>
     <nav aria-label="Detailed comparisons"><a href="/compare/moshi">Moshi</a><a href="/compare/termius">Termius</a><a href="/compare/blink">Blink</a></nav>
   </div>
-</section>
-
-<section id="open-source" class="oss-band">
-  <div class="page-frame oss-grid"><p class="oss-mark" aria-hidden="true">&lt;/&gt;</p><div><p class="kicker">GPLv3 CORE</p><h2>{landing.openSource.title}</h2><p>{landing.openSource.detail}</p></div><span class="button secondary">{landing.openSource.cta}</span></div>
 </section>
 
 <section id="download" class="section page-frame pricing-section">
