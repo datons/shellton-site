@@ -33,11 +33,13 @@ health: ## Check the loopback-only local web port
 	WEB_PORT=$${WEB_PORT:-3098}; \
 	curl -sf "http://127.0.0.1:$$WEB_PORT" >/dev/null && echo "WEB OK ($$WEB_PORT)" || (echo "WEB FAIL ($$WEB_PORT)"; exit 1)
 
-domain-plan: ## Print the offline Cloudflare zone, tunnel, ingress, and DNS plan
-	uv run deploy/cloudflare-domain.py
+domain-plan: ## Dry-run the Cloudflare DNS reconciliation (shared infra/cloudflare reconcile-domain)
+	@command -v reconcile-domain >/dev/null || { echo "reconcile-domain not installed: run ~/repos/infra/cloudflare/install.sh"; exit 1; }
+	reconcile-domain --config deploy/domain.env --dns-only
 
-domain-apply: ## Apply the Cloudflare plan after credentials and tunnel ID are provisioned
-	uv run deploy/cloudflare-domain.py --apply
+domain-apply: ## Apply the Cloudflare DNS reconciliation
+	@command -v reconcile-domain >/dev/null || { echo "reconcile-domain not installed: run ~/repos/infra/cloudflare/install.sh"; exit 1; }
+	reconcile-domain --config deploy/domain.env --dns-only --apply
 
 clean: ## Remove containers and orphan resources
 	$(DC) down --remove-orphans
